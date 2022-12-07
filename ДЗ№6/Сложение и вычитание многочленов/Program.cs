@@ -1,46 +1,41 @@
-﻿// f(x) = 4*x^3 + 3*x^2 + x + 11
+﻿//Урок 6. Задача: Написать программу сложения и вычитания двух многочленов
+// пример с семинара
+// f(x) = 4*x^3 + 3*x^2 + x + 11
 // g(x) = 10*x^3 + x + 10
 // f(x) + g(x) = 14*x^3 + 3*x^2 + 2*x + 21
 // f(x) - g(x) = -6*x^3 + 3*x^2 + 1
-//.........0..1..2..3..4..5.................
-int[] f = {1, 2, 0, 4, 5, 16};
-int[] g = {3, 5};
-// f(x) = 1*x^0 + 2*x^1 + 0*x^2 + 4*x^3 + 5*x^4 + 16*x^5
-// g(x) = 3*x^0 + 5*x^1 + 0*x^2 + 4*x^3 + 5*x^4 + 16*x^5
+
+
 
 // Сложение многочленов
 int[] Sum(int[] f, int[] g)
 {
-    int powF = f.Length;
-    int powG = g.Length;
+  int powF = f.Length;
+  int powG = g.Length;
 
-    int resultMax = powF;
-    int resultMin = powG;
+  int resultMax = powF;
+  int resultMin = powG;
 
-    if (powG > resultMax) 
-    {
+  if (powG > resultMax)
+  {
     resultMax = powG;
     resultMin = powF;
-    }
+  }
 
-    int[] result = new int[resultMax];
+  int[] result = new int[resultMax];
 
-    for (int i = 0; i < resultMax; i++)
-    {
-        
-       {
-        result[i] = f[i] + g[i];
-       }
-    }
+  for (int i = 0; i < resultMin; i++)
+  {
+    result[i] = f[i] + g[i];
+  }
 
-    for (int i = resultMin; i < resultMax; i++)
-    {
-        if (resultMax == powG) result[i] = g[i];
-        else result[i] = f[i];
-    }
+  for (int i = resultMin; i < resultMax; i++)
+  {
+    if (resultMax == powG) result[i] = g[i];
+    else result[i] = f[i];
+  }
 
-    return result;
-
+  return result;
 }
 
 
@@ -105,6 +100,12 @@ string Print(int[] f)
 
   return output;
 }
+
+//.........0..1..2..3..4..5.................
+int[] f = {1, 2, 0, 4, 5, 16};
+int[] g = {3, 5};
+// f(x) = 1*x^0 + 2*x^1 + 0*x^2 + 4*x^3 + 5*x^4 + 16*x^5
+// g(x) = 3*x^0 + 5*x^1 + 0*x^2 + 4*x^3 + 5*x^4 + 16*x^5
 
 Console.Write("Первый многочлен ");
 Console.WriteLine(Print(f));
